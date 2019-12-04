@@ -3,7 +3,6 @@ FROM centos:7.6.1810
 ENV QMAKE=qmake
 ENV PATH="${PATH}:/opt/qt/5.5/gcc_64/bin/"
 ADD qt-installer-noninteractive.qs .
-ADD entrypoint.sh .
 
 RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum install -y git wget curl libstdc++-devel make mesa-libGL-devel fontconfig \
   && curl -sSL https://download.qt.io/archive/qt/5.5/5.5.1/qt-opensource-linux-x64-5.5.1.run -o qt.run \
@@ -21,4 +20,5 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
     /opt/qt/Docs \
     /opt/qt/network.xml \
     /opt/qt/Examples
-ENTRYPOINT ["./entrypoint.sh"]
+
+ENTRYPOINT ["/bin/bash"]
