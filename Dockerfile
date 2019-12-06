@@ -11,7 +11,6 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
   && ./qt.run --platform minimal --script qt-installer-noninteractive.qs -v \
   && rm -rf \
     qt.run \
-    /var/lib/apt/lists/* \
     /opt/qt/update.rcc \
     /opt/qt/components.xml \
     /opt/qt/InstallationLog.txt \
